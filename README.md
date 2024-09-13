@@ -2,7 +2,7 @@
 # Plan de contenu
 ----
 
- - **Maven** :
+- **Maven** :
   - Introduction à Maven : gestionnaire de projets
   - Installation de Maven
   - Cycle de vie d'un projet Maven (mvn clean, mvn compile, mvn test, mvn spring-boot:run)
