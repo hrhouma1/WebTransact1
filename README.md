@@ -24,17 +24,6 @@
   - Importation d'un projet Spring Boot
   - Exécution du projet pour la première fois
 
-- **Swagger** :
-  - Introduction à Swagger pour la documentation des API REST
-  - Installation de la dépendance Swagger via Maven (`springfox-swagger2` et `springfox-swagger-ui`)
-  - Accès à l'interface Swagger à l'URL : `/swagger-ui.html`
-  - Documentation des endpoints REST automatiquement avec Swagger
-
-- **Base de données H2** :
-  - Configuration de la base de données H2 en tant que base de données en mémoire
-  - Utilisation pour les tests et le développement local
-  - Accès à la console H2 via l'URL : `/h2-console`
-  - Paramétrage dans `application.properties` pour permettre la connexion automatique à H2
 
 - **Spring Boot et REST** :
   - Création d'un service web simple avec REST
@@ -43,6 +32,14 @@
     - **@RestController** : Définit un contrôleur REST
     - **@RequestMapping** : Définit le mapping des requêtes HTTP
     - **@GetMapping, @PostMapping, @PutMapping, @DeleteMapping** : Gèrent les différents types de requêtes HTTP
+
+- **Base de données H2** :
+  - Configuration de la base de données H2 en tant que base de données en mémoire
+  - Utilisation pour les tests et le développement local
+  - Accès à la console H2 via l'URL : `/h2-console`
+  - Paramétrage dans `application.properties` pour permettre la connexion automatique à H2
+
+
 
 - **Architecture MVC (Modèle-Vue-Controlleur)** :
   - Structure d'un projet Spring Boot : contrôleurs, services, répertoires
@@ -71,6 +68,16 @@
   - Personnalisation des méthodes de repository :
     - **findByNom** : Créer des méthodes personnalisées basées sur le nom des attributs de l'entité
 
+
+- **Swagger** :
+  - Introduction à Swagger pour la documentation des API REST
+  - Installation de la dépendance Swagger via Maven (`springfox-swagger2` et `springfox-swagger-ui`)
+  - Accès à l'interface Swagger à l'URL : `/swagger-ui.html`
+  - Documentation des endpoints REST automatiquement avec Swagger
+
+
+
+
 - **Journalisation (Logging)** :
   - Introduction à la journalisation dans Spring Boot
   - Utilisation de SLF4J et Logback
@@ -80,6 +87,7 @@
     - Différentes stratégies de rotation des logs (taille, date)
     - Paramétrage de loggers spécifiques pour des classes ou des packages
     - Gestion des niveaux de log dans `application.properties` ou `logback-spring.xml`
+   
 
 - **Docker** :
   - Introduction à Docker
