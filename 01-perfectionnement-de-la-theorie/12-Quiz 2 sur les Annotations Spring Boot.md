@@ -1,12 +1,4 @@
-# 📚 **Quiz Spring Boot**
-
-### **Aperçu**
-
-Testez vos connaissances sur les annotations essentielles de Spring Boot avec ce quiz de 50 questions. Chaque question est accompagnée de plusieurs choix, mais une seule réponse est correcte. Bonne chance ! 🚀
-
----
-
-### **Quiz**
+# 📚 ***Quiz**
 
 1. **Quelle annotation est utilisée pour marquer une classe comme un contrôleur REST dans Spring Boot ?**  
    - `@Service`  
