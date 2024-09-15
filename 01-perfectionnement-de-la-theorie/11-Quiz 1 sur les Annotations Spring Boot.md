@@ -1,4 +1,4 @@
-### Quiz sur les Annotations Spring Boot
+# Quiz 1 sur les Annotations Spring Boot
 
 1. **Question:** Quelle annotation est utilisée pour marquer une classe comme un composant de Spring, permettant à Spring de la détecter automatiquement ?
    - A) `@Autowired`
