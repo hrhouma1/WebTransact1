@@ -206,9 +206,7 @@
 
 35. **Comment spécifier une requête JPQL pour chercher des entités tout en supportant la pagination ?**  
     - En utilisant `@Query` au-dessus d'une méthode de repository et en passant `Pageable` comme paramètre.  
-    -
-
- En déclarant une méthode dans le repository avec un retour de type `List` et en ajoutant manuellement des paramètres de pagination.  
+    - En déclarant une méthode dans le repository avec un retour de type `List` et en ajoutant manuellement des paramètres de pagination.  
     - En utilisant `@Pagination` sur les entités JPA.  
     - Par l'annotation `@EnableJpqlPagination` au niveau de la classe d'application principale.
 
