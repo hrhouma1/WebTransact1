@@ -1,4 +1,4 @@
-# 📚 ***Quiz**
+# 📚 Quiz 2 sur les Annotations Spring Boot
 
 1. **Quelle annotation est utilisée pour marquer une classe comme un contrôleur REST dans Spring Boot ?**  
    - `@Service`  
