@@ -1,0 +1,82 @@
+# **Quiz sur les Relations entre Entités JPA**
+
+# **Section 1 : Questions à Choix Multiples (QCM)**
+
+#### 1. Quel type de relation est utilisé lorsque **chaque client** possède **un seul compte**, et **chaque compte** appartient à **un seul client** ?
+- A) One-to-One
+- B) One-to-Many
+- C) Many-to-Many
+- D) Many-to-One
+
+#### 2. Quelle annotation est utilisée pour **gérer la clé étrangère** dans une relation **One-to-One** lorsque l'entité est **propriétaire de la relation** ?
+- A) `@ManyToMany`
+- B) `@OneToOne`
+- C) `@JoinColumn`
+- D) `@MappedBy`
+
+#### 3. Quelle est l'utilité de l'annotation `@mappedBy` dans une relation **One-to-One** ou **One-to-Many** ?
+- A) Pour gérer la clé étrangère dans l'entité propriétaire
+- B) Pour indiquer quel attribut gère la relation dans l'autre entité
+- C) Pour désigner une clé primaire
+- D) Pour créer une table d'association
+
+#### 4. Dans une relation **One-to-Many**, où se trouve la **clé étrangère (FK)** ?
+- A) Dans l'entité qui a plusieurs instances (le côté "Many")
+- B) Dans l'entité qui a une seule instance (le côté "One")
+- C) Dans une table intermédiaire
+- D) Elle n'est pas utilisée dans cette relation
+
+#### 5. Comment appelle-t-on la table intermédiaire dans une relation **Many-to-Many** ?
+- A) Table de mapping
+- B) Table d'association
+- C) Table d'entité
+- D) Table de jointure
+
+---
+
+# **Section 2 : Questions ouvertes**
+
+#### 6. Expliquez, avec vos propres mots, la différence entre une relation **One-to-One** et **One-to-Many**.
+
+#### 7. Pourquoi est-il important de définir correctement **`@JoinColumn`** et **`mappedBy`** dans les relations entre entités ? Donnez un exemple où cela pourrait poser problème si ces annotations ne sont pas correctement utilisées.
+
+#### 8. Décrivez la manière dont une relation **Many-to-Many** est implémentée en JPA. Quels types de tables et de clés sont nécessaires pour gérer ce type de relation ?
+
+---
+
+# **Section 3 : Exercices pratiques**
+
+#### 9. Dans une relation **One-to-One** entre `Customer` et `Account`, modifiez les entités pour que **`Account`** devienne le propriétaire de la relation (au lieu de **`Customer`**). Écrivez le code correspondant pour les deux entités avec les annotations appropriées.
+
+#### 10. Créez un modèle d'entités pour gérer une relation **One-to-Many** entre un **Auteur** et ses **Livres**. Chaque **Auteur** peut écrire plusieurs **Livres**, mais chaque **Livre** a un seul **Auteur**. Ajoutez les annotations JPA nécessaires pour gérer cette relation.
+
+#### 11. Vous devez créer une relation **Many-to-Many** entre des **Étudiants** et des **Cours**. Les étudiants peuvent suivre plusieurs cours, et chaque cours peut être suivi par plusieurs étudiants. Montrez comment vous implémenteriez cela en utilisant les annotations JPA. Incluez la table d'association et les annotations nécessaires.
+
+---
+
+# **Section 4 : Réflexion**
+
+#### 12. Un client a une relation **One-to-Many** avec ses commandes (**Order**), mais parfois il arrive que certaines commandes soient annulées et ne doivent pas être visibles dans l'application. Comment implémenteriez-vous un système qui permet de gérer cela avec JPA tout en respectant la relation **One-to-Many** ?
+
+---
+
+# **Section 5 : Vrai ou Faux**
+
+#### 13. Dans une relation **Many-to-Many**, il est obligatoire d'avoir une table intermédiaire pour gérer la relation.  
+- Vrai  
+- Faux
+
+#### 14. Dans une relation **One-to-One**, l'annotation `@OneToOne` doit être utilisée dans les deux entités, mais seule l'entité propriétaire aura la clé étrangère.  
+- Vrai  
+- Faux
+
+#### 15. Une relation **One-to-Many** peut être bidirectionnelle, ce qui signifie que vous pouvez naviguer dans les deux sens entre les entités.  
+- Vrai  
+- Faux
+
+---
+
+# **Section 6 : Challenge Bonus**
+
+#### 16. Implémentez une petite application JPA où vous modélisez une bibliothèque avec des **Livres**, des **Auteurs**, et des **Catégories**. Les **Livres** peuvent être associés à plusieurs **Auteurs** (relation **Many-to-Many**), et chaque livre appartient à une **Catégorie** unique (relation **One-to-Many**). Montrez le code des entités nécessaires et les annotations JPA appropriées.
+
