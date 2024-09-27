@@ -26,8 +26,8 @@
 
 | Étape | Description |
 |-------|-------------|
-| **9. Implémentation des CRUD complets** | Implémenter toutes les opérations CRUD (Create, Read, Update, Delete) en utilisant Spring Data JPA. |
+| **9. Implémentation des méthodes simples (CRUD simples)** | Implémenter toutes les opérations CRUD (Create, Read, Update, Delete) en utilisant Spring Data JPA. |
 | **10. Ajouter Swagger pour la documentation** | Intégrer Swagger dans le projet pour générer automatiquement la documentation des API. |
-| **11. Implémenter des méthodes personnalisées** | Ajouter des méthodes personnalisées dans les repositories JPA pour des requêtes spécifiques. |
-| **12. Utiliser JPQL** | Utiliser JPQL (Java Persistence Query Language) pour écrire des requêtes plus complexes. |
+| **11. Implémenter des méthodes  personnalisées** | Ajouter des méthodes personnalisées dans les repositories JPA pour des requêtes spécifiques. |
+| **12. Utiliser un exemple JPQL** | Utiliser JPQL (Java Persistence Query Language) pour écrire des requêtes plus complexes. |
 
