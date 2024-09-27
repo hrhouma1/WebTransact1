@@ -61,3 +61,42 @@ La **Livraison 4** inclut la mise en œuvre des fonctionnalités spécifiques de
 - https://github.com/hrhouma1/cards
 - # Parties 2.3 / 3.3 / 3.4
 
+
+--------------------------------------------------------
+# Annexe - Modèles 
+--------------------------------------------------------
+
+# Customer Class 
+
+```
++---------------------+
+|      Customer        |
++---------------------+
+| - customerId: int    |  (PK)
+| - customerLastName:  |
+|    String            |
+| - customerFirstName: |
+|    String            |
++---------------------+
+```
+
+# Card Class 
+
+```
++--------------------+
+|       Card         |
++--------------------+
+| - cardId: int      |  (PK)
+| - customerId: int  |  (FK)
+| - cardNumber:      |
+|   String           |
+| - cardType: String |
+| - totalLimit: int  |
+| - amountUsed: int  |
+| - availableAmount: |
+|   int              |
+| - createDt: String |
++--------------------+
+```
+
+Dans ces modèles, la clé primaire est indiquée par `(PK)` et la clé secondaire (clé étrangère) par `(FK)`.
