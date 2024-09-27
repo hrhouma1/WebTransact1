@@ -85,5 +85,5 @@ La **Livraison 4** inclut la mise en œuvre des fonctionnalités spécifiques de
 
 - https://github.com/hrhouma1/WebTransact/blob/main/99-evaluations-ete-2024/LABORATOIRE1/README.md
 - https://github.com/hrhouma1/cards
-- 
+- Parties 2.3 / 3.3 / 3.4
 
