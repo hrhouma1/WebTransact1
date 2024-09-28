@@ -14,8 +14,13 @@
 |-------|-------------|
 | **1. Créer un projet avec Spring Initializr** | Choisir la version de Java, le nom du projet et le type de packaging (Jar). |
 | **2. Ajouter les dépendances** | Ajouter les dépendances Spring Web, Spring Data JPA et PostgreSQL dans le `pom.xml`. |
-| **3. Créer les modèles (entités)** | Créer les classes de modèle avec `@Entity`, `@Id`, `@GeneratedValue`. Ajouter les getters, setters, et constructeurs. |
+| **3. Créer les modèles (entités)** | Créer les classes de modèles (Au début n'utilisez pas JPA , c-a-d, `@Entity`, `@Id`, `@GeneratedValue`. Ajouter les getters, setters, et constructeurs.) |
 | **4. Implémenter les contrôleurs** | Utiliser des listes en mémoire pour implémenter des opérations CRUD dans les contrôleurs REST. |
+
+
+#### Testez (test1.http) + swagger
+#### Possibilité d'amélioration (v2) : empêcher l'insertion du même client et de la même carte si elle existe déjà (clé primaire)
+
 
 ---------------------------------------------------------------------------------
 # Livraison 2 : Étapes 5 à 8
