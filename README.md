@@ -33,7 +33,8 @@
 ---------------------
 
 
-🤫 **Petit secret... si vous voulez tricher un peu** 😜, vous pouvez toujours consulter [**elements-de-reponse.md**](elements-de-reponse.md).  
+# 🤫 **Petit secret...** 
+- *si vous voulez tricher un peu* 😜, vous pouvez toujours consulter [**elements-de-reponse.md**](elements-de-reponse.md).  
 Mais chut, on ne dira rien à personne ! 🤐
 ⚠️ **Attention** : Pour les plus **sensibles aux erreurs et bugs** 😏, ça ne garantit pas que tout fonctionnera à 100% ! Il faudra quand même faire un petit effort ! 💻💪
 
