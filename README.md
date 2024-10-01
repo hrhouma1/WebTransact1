@@ -26,3 +26,14 @@
 👍 **Restez concentré(e) et suivez bien chaque étape**. Le chemin vers l'expertise est pavé de petites victoires ! 🏆
 
 💪 **Bon courage à tous et à toutes** ! On est derrière vous, prêts à célébrer vos réussites ! 🎉🎯
+
+
+
+
+---------------------
+
+
+🤫 **Petit secret... si vous voulez tricher un peu** 😜, vous pouvez toujours consulter [**elements-de-reponse.md**](elements-de-reponse.md).  
+Mais chut, on ne dira rien à personne ! 🤐
+⚠️ **Attention** : Pour les plus **sensibles aux erreurs et bugs** 😏, ça ne garantit pas que tout fonctionnera à 100% ! Il faudra quand même faire un petit effort ! 💻💪
+
