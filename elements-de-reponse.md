@@ -250,7 +250,7 @@ Ces implémentations couvrent tous les endpoints demandés dans le cahier des ch
 # Annexe 1 
 -----------------------------
 
-- Quels sont les avantages spécifiques d'ajouter les méthodes existsByCardNumber et findByCardNumber dans l'interface CardRepository, et comment ces méthodes améliorent-elles la performance et la fonctionnalité de l'application ?
+### Quels sont les avantages spécifiques d'ajouter les méthodes existsByCardNumber et findByCardNumber dans l'interface CardRepository, et comment ces méthodes améliorent-elles la performance et la fonctionnalité de l'application ?
 
 ### Réponse : 
 
@@ -283,7 +283,7 @@ Cette approche suit les bonnes pratiques de Spring Data JPA en utilisant des mé
 # Annexe 2
 ----------------------------
 
-- Pourquoi n'est-il pas nécessaire de déclarer explicitement des méthodes comme findAll() ou findById() dans l'interface CardRepository, et comment ces méthodes sont-elles disponibles pour utilisation dans le code ?
+### Pourquoi n'est-il pas nécessaire de déclarer explicitement des méthodes comme findAll() ou findById() dans l'interface CardRepository, et comment ces méthodes sont-elles disponibles pour utilisation dans le code ?
 
 ### Réponse : 
 - En effet, les méthodes comme `findAll()`, `findById()`, et d'autres méthodes de requête standard sont généralement fournies automatiquement par Spring Data JPA lorsque vous étendez l'interface `JpaRepository`. Voici pourquoi ces méthodes n'ont pas été explicitement mentionnées dans le code précédent :
@@ -324,7 +324,8 @@ public interface CardRepository extends JpaRepository<Card, Integer> {
 
 # Annexe 3
 
-- Pouvez-vous expliquer la différence entre les méthodes héritées de JpaRepository et les méthodes personnalisées dans une interface de repository, en donnant des exemples de chaque type et en expliquant leurs utilisations spécifiques ?
+### Pouvez-vous expliquer la différence entre les méthodes héritées de JpaRepository et les méthodes personnalisées dans une interface de repository, en donnant des exemples de chaque type et en expliquant leurs utilisations spécifiques ?
+
 ### Réponse : 
 
 - Je vous présente un tableau comparatif des méthodes héritées de JpaRepository et des méthodes personnalisées que vous pourriez ajouter à votre interface CardRepository :
