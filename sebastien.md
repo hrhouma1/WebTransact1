@@ -5,7 +5,6 @@ public interface CardRepository extends JpaRepository<Card, Integer> {
     boolean existsByCardNumber(String cardNumber);
     Optional<Card> findByCardNumber(String cardNumber);
     
-    // Ajoutez cette méthode
     void deleteByCardNumber(String cardNumber);
 }
 ```
