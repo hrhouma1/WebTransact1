@@ -12,7 +12,8 @@
   Dans [**3.3. Application-Pratique2-Exercice2.md**](3.3.Application-Pratique2-Exercice2.md) (18%), ajoutez la classe **Customer** avec **JPA** et créez deux petites méthodes :
   - Récupérer toutes les cartes (GET) 📜
   - Ajouter une carte (POST) 🃏  
-  Si vous n'avez pas fait une pause café avant, c'est maintenant ou jamais ! ☕😅
+  Si vous n'avez pas fait une pause café avant, c'est maintenant ou jamais ! ☕😅  
+  Buvez votre café en consultant [**3.3.Troubleshooting-add.md**](3.3.Troubleshooting-add.md), ça peut faire du bien ! 😉
 
 # 📌 **Étape 4** : 
 - **Et maintenant, il est temps de tester votre expertise** ! 🎓🔥  
