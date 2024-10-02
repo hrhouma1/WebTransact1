@@ -30,10 +30,36 @@ L'erreur de dépendance cyclique survient lorsqu'un ou plusieurs composants d'un
 
 
 
-
+-------------------------------------------
 # Exemple de contexte 1
+-------------------------------------------
 
 Dans le cadre de Spring Boot, une erreur de **dépendance cyclique** survient lorsque deux ou plusieurs classes ou beans sont interdépendants dans un cycle infini, empêchant le bon fonctionnement de l'injection de dépendances. Cela se produit généralement lorsque les classes dépendent les unes des autres pour leur création, ce qui crée une boucle.
+
+
+
+## Relation entre un client et ses cartes, où un client peut avoir plusieurs cartes.
+
+```
++--------------------------+             +--------------------------+
+|        Customer           |             |          Card             |
++--------------------------+             +--------------------------+
+| - customerId (PK)         | <-----------| - cardId (PK)             |
+| - customerFirstName       |             | - customerId (FK)         |
+| - customerLastName        |             | - cardNumber              |
++--------------------------+             | - cardType                |
+                                          | - totalLimit              |
+                                          | - amountUsed              |
+                                          | - availableAmount         |
+                                          | - createDt                |
+                                          +--------------------------+
+```
+
+- **Customer** : La classe `Customer` contient `customerId` comme clé primaire (PK).
+- **Card** : La classe `Card` contient `cardId` comme clé primaire (PK) et `customerId` comme clé étrangère (FK) qui fait référence à `Customer`.
+
+
+
 
 ### Exemple de dépendance cyclique dans le projet avec **Customer** et **Card** :
 
