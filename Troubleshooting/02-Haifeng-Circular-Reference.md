@@ -1,5 +1,19 @@
 
-- Haifeng dispose de ces deux entités : 
+
+- Haifeng dispose de ces deux entités Customer et Cards (voir ci-bas)
+- Haifeng réussit à insérer des clients via un POST http://localhost:8081/newCustomer (voir le fichier test.http)
+- Haifeng réussit à insérer des cartes  via un POST http://localhost:8081/newCard (voir le fichier test.http)
+- Haifeng échoue d'exécuter GET http://localhost:8081/AllCards (voir le fichier test.http), l'application charge pour longtemps et finalement il a l'erreur suivante:
+
+```java
+com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774) ~[jackson-databind-2.14.2.jar:2.14.2]
+at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178) ~[jackson-databind-2.14.2.jar:2.14.2at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:733) ~[jackson-databind-2.14.2.jar:2.14.2
+at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774) ~[jackson-databind-2.14.2.jar:2.14.2]
+ ```
+
+-----------------------------------------  
+# Ancienne entité Customer
+-----------------------------------------
 
 
 ```java
@@ -71,14 +85,13 @@ public class Customer {
 
    ```
 
-
-
+-----------------------------------------
+# Ancienne entité Cards
+-----------------------------------------
 
 ```java
 package com.eazybytes.cards.model;
 import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -110,12 +123,8 @@ public class Cards {
 	@Column(name = "create_dt")
 	private LocalDate createDt;
 
-	/*@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false)*/
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
-	@JsonIgnore
 	private Customer customer;
 	
 
@@ -198,4 +207,6 @@ public class Cards {
 		this.customer = customer;
 	}
 }
+
    ```
+
