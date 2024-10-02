@@ -243,4 +243,5 @@ public class Cards {
  
 # 1 - Comparez les :
 # 2 - Expliquez l'erreur : 
+- Pourquoi l'application charge pour longtemps quand Haifeng exécute le GET http://localhost:8081/AllCards
 
