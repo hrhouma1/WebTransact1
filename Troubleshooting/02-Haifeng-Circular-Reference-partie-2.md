@@ -1,8 +1,9 @@
+# Explication détaillée
 
-- L'erreur que Haifeng a rencontré est liée à la sérialisation Jackson, qui est responsable de la conversion de vos objets Java en JSON. 
+- L'erreur que Haifeng a rencontré est liée à la sérialisation Jackson, qui est responsable de la conversion des objets Java en JSON. 
 - Le message d'erreur suggère qu'il y a un problème lors de la sérialisation de certains champs, en particulier les collections et les propriétés des beans, ce qui peut entraîner des boucles infinies.
 
-Voici les raisons courantes et les étapes à suivre pour résoudre ce problème :
+Je vous présente les raisons courantes et les étapes à suivre pour résoudre ce problème si vous le rencontrez:
 
 ### 1. **Référence Circulaire**
    Si vos entités se référencent mutuellement de manière circulaire (par exemple, `Card` fait référence à `Customer`, et `Customer` fait référence à `Card`), Jackson peut rencontrer une dépendance circulaire lors de la sérialisation, provoquant une boucle infinie.
