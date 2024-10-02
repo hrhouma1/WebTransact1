@@ -1,4 +1,37 @@
-# Exemple 1
+# Définition
+
+L'erreur de dépendance cyclique survient lorsqu'un ou plusieurs composants d'une application dépendent l'un de l'autre dans un cycle infini, empêchant l'initialisation correcte du système. Pour résoudre cette erreur, voici quelques étapes à suivre :
+
+### 1. **Identifier la dépendance cyclique :**
+   - Examinez vos fichiers de configuration (comme `pom.xml` dans un projet Maven ou `package.json` dans un projet Node.js) pour voir si des modules ou des bibliothèques se réfèrent mutuellement.
+   - Par exemple, si le module A dépend du module B, mais que le module B dépend aussi du module A, cela créera une boucle.
+
+### 2. **Analyser les erreurs dans les journaux :**
+   - Vérifiez les logs d'erreur ou de compilation pour identifier exactement où la dépendance cyclique se produit.
+
+### 3. **Réorganiser les dépendances :**
+   - Essayez de revoir l'architecture pour éliminer le cycle. Parfois, diviser les modules ou les classes en composants plus indépendants permet de casser la boucle.
+   - Par exemple, si le service A appelle le service B et que le service B dépend du service A, essayez de refactorer pour que l’un d’eux soit indépendant ou utilise un design pattern tel que **l'injection de dépendances**.
+
+### 4. **Utiliser des interfaces :**
+   - L'utilisation d'interfaces ou de design patterns comme le **pattern Observer** ou **l'inversion de contrôle (IoC)** peut vous aider à éviter les dépendances cycliques en réduisant le couplage direct entre les classes ou les composants.
+
+### 5. **Exemples pratiques :**
+
+   **Pour Maven :**
+   - Vérifiez votre fichier `pom.xml` pour voir s'il existe des cycles dans les dépendances.
+   - Utilisez la commande `mvn dependency:tree` pour visualiser les dépendances dans votre projet.
+   - Si des dépendances transitoires sont en cause, vous pouvez les exclure explicitement dans la section des dépendances.
+
+   **Pour Node.js :**
+   - Si vous utilisez `npm`, vous pouvez exécuter `npm ls` pour afficher toutes les dépendances de votre projet et voir si une boucle existe.
+   - Vous pouvez également envisager d'utiliser des versions différentes des modules pour éviter les cycles.
+
+
+
+
+
+# Exemple de contexte 1
 
 Dans le cadre de Spring Boot, une erreur de **dépendance cyclique** survient lorsque deux ou plusieurs classes ou beans sont interdépendants dans un cycle infini, empêchant le bon fonctionnement de l'injection de dépendances. Cela se produit généralement lorsque les classes dépendent les unes des autres pour leur création, ce qui crée une boucle.
 
