@@ -1,4 +1,29 @@
+----------------------------
 # Exemple 2
+---------------------------
+
+
+
+## Relation entre un client et ses cartes, où un client peut avoir plusieurs cartes.
+
+```
++--------------------------+             +--------------------------+
+|        Customer           |             |          Card             |
++--------------------------+             +--------------------------+
+| - customerId (PK)         | <-----------| - cardId (PK)             |
+| - customerFirstName       |             | - customerId (FK)         |
+| - customerLastName        |             | - cardNumber              |
++--------------------------+             | - cardType                |
+                                          | - totalLimit              |
+                                          | - amountUsed              |
+                                          | - availableAmount         |
+                                          | - createDt                |
+                                          +--------------------------+
+```
+
+- **Customer** : La classe `Customer` contient `customerId` comme clé primaire (PK).
+- **Card** : La classe `Card` contient `cardId` comme clé primaire (PK) et `customerId` comme clé étrangère (FK) qui fait référence à `Customer`.
+
 
 L'utilisation de l'annotation `@ManyToOne` et `@OneToMany` dans une relation bidirectionnelle entre entités en JPA peut aussi entraîner des dépendances cycliques si elle n'est pas bien gérée. Voici un exemple typique de relation bidirectionnelle entre deux entités, `Customer` et `Card`, avec les annotations JPA, et une explication sur la manière d'éviter une dépendance cyclique dans ce cas.
 
