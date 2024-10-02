@@ -224,11 +224,11 @@ public class Cards {
 # Résolution simple :
 
 ### Allez dans Card.java
-- Remplacez les premières lignes par le deuxième code (Comparez les )
+- Remplacez le premier code par le deuxième code (Comparez les )
 
    ```java
-	/*@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false)*/
+	@ManyToOne
+	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
    ```
    
@@ -241,6 +241,6 @@ public class Cards {
 
    - N'oubliez pas d'ajouter import com.fasterxml.jackson.annotation.JsonIgnore; dans Cards.java
  
-
-# Explication : 
+# 1 - Comparez les :
+# 2 - Expliquez l'erreur : 
 
