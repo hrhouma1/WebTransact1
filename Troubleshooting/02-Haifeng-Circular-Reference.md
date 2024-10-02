@@ -1,9 +1,19 @@
-
-
+# Contexte
+ 
 - Haifeng dispose de ces deux entités Customer et Cards (voir ci-bas)
 - Haifeng réussit à insérer des clients via un POST http://localhost:8081/newCustomer (voir le fichier test.http)
 - Haifeng réussit à insérer des cartes  via un POST http://localhost:8081/newCard (voir le fichier test.http)
+
+## Code original : 
+
+```java
+git clone https://github.com/hrhouma1/Haifeng-Circular-Ref-problem.git
+```
+
+# Erreur: 
+
 - Haifeng échoue d'exécuter GET http://localhost:8081/AllCards (voir le fichier test.http), l'application charge pour longtemps et finalement il a l'erreur suivante:
+
 
 ```java
 com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774) ~[jackson-databind-2.14.2.jar:2.14.2]
@@ -209,4 +219,28 @@ public class Cards {
 }
 
    ```
+
+
+# Résolution simple :
+
+### Allez dans Card.java
+- Remplacez les premières lignes par le deuxième code (Comparez les )
+
+   ```java
+	/*@ManyToOne
+	@JoinColumn(name = "customer_id", nullable = false)*/
+	private Customer customer;
+   ```
+   
+   ```java
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "customer_id", nullable = false)
+	@JsonIgnore
+	private Customer customer;
+   ```
+
+   - N'oubliez pas d'ajouter import com.fasterxml.jackson.annotation.JsonIgnore; dans Cards.java
+ 
+
+# Explication : 
 
