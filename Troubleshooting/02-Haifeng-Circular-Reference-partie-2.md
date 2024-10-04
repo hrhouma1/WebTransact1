@@ -85,7 +85,7 @@ Ces ajustements devraient nous aider à résoudre les problèmes de sérialisati
 
 
 ---------------------------------------------------
-# Annexe : Explication de JsonIgnore
+# Annexe 1 : Explication de JsonIgnore
 ---------------------------------------------------
 
 
@@ -159,4 +159,89 @@ Avec cette approche :
 ### Résumé
 - Utilisez `@JsonIgnore` sur la propriété qui cause la boucle pour empêcher sa sérialisation.
 - Alternativement, utilisez `@JsonManagedReference` et `@JsonBackReference` pour gérer automatiquement les relations bidirectionnelles et éviter les dépendances cycliques.
+
+
+
+--------------
+# Annexe 2 - @JsonIgnore
+---------------
+
+
+L'analyse du problème décrit par Haifeng concerne une erreur liée à la sérialisation d'objets Java en JSON à l'aide de Jackson dans Spring Boot, en raison d'une **référence circulaire** entre deux entités, `Customer` et `Cards`. Voici une explication détaillée de la situation, des causes courantes et des solutions proposées.
+
+### 1. **Référence Circulaire :**
+Le problème typique avec la sérialisation Jackson se produit lorsque deux entités se réfèrent mutuellement, ce qui crée une **référence circulaire**. Prenons le scénario où vous avez deux entités, `Customer` et `Cards` :
+- Chaque `Customer` a une liste de `Cards` (une relation One-to-Many).
+- Chaque `Card` a une référence à un `Customer` (relation Many-to-One).
+
+Ainsi, lors de la sérialisation d'un `Customer`, Jackson va essayer de sérialiser la liste des `Cards`, puis chaque `Card` va à nouveau tenter de sérialiser le `Customer`, et ainsi de suite, créant une boucle infinie.
+
+#### Exemple de relations circulaires dans les entités :
+
+```java
+public class Customer {
+    @JsonManagedReference
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Cards> cards;
+}
+
+public class Cards {
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+}
+```
+
+### 2. **Explication des annotations `@JsonManagedReference` et `@JsonBackReference` :**
+Ces annotations sont la solution courante à ce type de problème dans Jackson.
+
+- **`@JsonManagedReference`** : Utilisée du côté "propriétaire" de la relation, ici dans l'entité `Customer`. Elle indique à Jackson que c'est cette référence qui doit être gérée et donc sérialisée.
+- **`@JsonBackReference`** : Utilisée du côté inverse de la relation, ici dans l'entité `Cards`. Cette annotation indique que cette référence ne doit pas être sérialisée et est simplement utilisée pour établir la relation inverse.
+
+Cela empêche Jackson de tenter de sérialiser de manière circulaire les objets, cassant ainsi la boucle. Lors de la sérialisation d'un `Customer`, la liste des `Cards` sera incluse, mais Jackson ne tentera pas de sérialiser à nouveau l'objet `Customer` dans chaque `Card`.
+
+### 3. **Pourquoi cette solution fonctionne :**
+- **`@JsonManagedReference`** permet à Jackson de comprendre que la sérialisation part de cette entité (ici, `Customer`).
+- **`@JsonBackReference`** informe Jackson que lorsqu'il atteint cette référence (ici, dans `Cards`), il ne doit pas tenter de sérialiser à nouveau l'objet parent, empêchant ainsi la boucle infinie.
+
+### 4. **Autres solutions possibles :**
+Si l'utilisation de `@JsonManagedReference` et `@JsonBackReference` ne résout pas complètement le problème, ou si votre cas d'utilisation est différent, voici d'autres options :
+
+- **Utilisation de `@JsonIgnore` :** 
+  Si une relation inverse n'a pas besoin d'être incluse dans la sérialisation JSON, vous pouvez simplement l'ignorer avec `@JsonIgnore`.
+
+  ```java
+  public class Cards {
+      @JsonIgnore
+      @ManyToOne
+      @JoinColumn(name = "customer_id", nullable = false)
+      private Customer customer;
+  }
+  ```
+
+- **Utilisation de `@JsonIdentityInfo` :**
+  Pour gérer des références circulaires tout en maintenant la sérialisation des deux côtés de la relation, vous pouvez utiliser l'annotation `@JsonIdentityInfo`. Elle permet à Jackson de sérialiser les objets en utilisant un identifiant unique pour éviter les boucles.
+
+  Exemple :
+
+  ```java
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+  public class Customer {
+      @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+      private List<Cards> cards;
+  }
+
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+  public class Cards {
+      @ManyToOne
+      @JoinColumn(name = "customer_id", nullable = false)
+      private Customer customer;
+  }
+  ```
+
+### Conclusion :
+Dans le cas de Haifeng, la solution `@JsonManagedReference` et `@JsonBackReference` est une bonne approche pour résoudre les problèmes de références circulaires lors de la sérialisation Jackson. Elle permet de sérialiser correctement les entités tout en évitant les boucles infinies.
+
+Si nous avons  des configurations plus complexes ou d'autres cas d'utilisation, d'autres solutions comme `@JsonIgnore` ou `@JsonIdentityInfo` peuvent être envisagées pour ajuster la sérialisation en fonction de nos besoins.
 
