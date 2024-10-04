@@ -9,7 +9,9 @@
 
 # Voici le projet d'origine avec des problèmes
 
-
+```java
+git clone https://github.com/hrhouma1/Alamiro-Types-Repo-problem.git
+```
 
 ### **Problème 1 : Incohérence des types de données**
 Dans le repository lié à l'entité `Customer`, une méthode a été définie pour rechercher un client par `customerId`. Cependant, le type de données utilisé dans la méthode ne correspondait pas au type de données du champ `customerId` dans l'entité `Customer`.
