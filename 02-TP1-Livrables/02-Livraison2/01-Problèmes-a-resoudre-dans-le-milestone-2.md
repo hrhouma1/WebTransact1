@@ -44,7 +44,8 @@
 ## ==> Pour résoudre les problèmes du milestone 1, voici une proposition de code amélioré pour votre CardController et le modèle Card, ainsi qu'un fichier HTTP mis à jour :
 
 
-
+--------------------------------------
+# Proposition de résolution
 ------------------------------------
 
 # CardController
