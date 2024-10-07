@@ -85,7 +85,6 @@ Après avoir écouté vos réflexions, voici ce que notre chef de projet, Haythe
 Je suis vraiment impressionné par votre perspicacité et votre travail d'équipe. Ces améliorations vont considérablement renforcer notre application. Préparez-vous pour un Milestone 2 passionnant et enrichissant !"
 
 Continuez votre excellent travail, et n'oubliez pas : chaque défi est une opportunité d'apprentissage et d'amélioration. Bonne chance pour la suite du projet !
-```
 
 
 -------------------------------------------------------------------------------
