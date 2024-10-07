@@ -5,7 +5,7 @@
   Rien de compliqué, c'est juste pour s'échauffer ! 💪😄
 
 # 📌 **Étape 2 (Optionnelle)** : 
-- Si vous avez du temps à perdre... euh, je veux dire à gagner 😅, essayez de gérer **Customer** en mémoire via un service REST dans [**2.4. ApplicationPratique-Exercice1-Suite-Optionnel.md**](2.4. ApplicationPratique-Exercice1-Suite-OPtionnel.md) 🚀 (Bonus)
+- Si vous avez du temps à perdre... euh, je veux dire à gagner 😅, essayez de gérer **Customer** en mémoire via un service REST dans [**2.4. ApplicationPratique-Exercice1-Suite-Optionnel.md**](2.4.ApplicationPratique-Exercice1-Suite-OPtionnel.md) 🚀 (Bonus)
 
 # 📌 **Étape 3** : 
 - **Attention, il est temps de tester votre vigilance** ! 🧐  
