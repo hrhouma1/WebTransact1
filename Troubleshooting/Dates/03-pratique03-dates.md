@@ -349,3 +349,94 @@ Cette implémentation offre une gestion plus flexible des dates d'événements, 
 4. Ajout de nouveaux endpoints dans `EventController` pour gérer les plages de dates.
 
 Ces changements permettent une gestion plus robuste des événements avec des dates multiples ou récurrentes.
+
+
+
+# Annexe 2 - Fichier de test HTTP + schéma ASCII de l'organisation du projet.
+
+Tout d'abord, voici le contenu du fichier `test1.http` que vous pouvez utiliser pour tester vos endpoints :
+
+```http
+### Créer un nouvel événement
+POST http://localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "name": "Conférence Spring Boot",
+  "description": "Une conférence sur les meilleures pratiques Spring Boot"
+}
+
+### Récupérer tous les événements
+GET http://localhost:8080/api/events
+
+### Récupérer un événement par ID
+GET http://localhost:8080/api/events/1
+
+### Mettre à jour un événement
+PUT http://localhost:8080/api/events/1
+Content-Type: application/json
+
+{
+  "name": "Conférence Spring Boot 2023",
+  "description": "Mise à jour de la conférence sur les meilleures pratiques Spring Boot"
+}
+
+### Ajouter une plage de dates à un événement
+POST http://localhost:8080/api/events/1/add-date-range?start=2023-10-15T09:00:00&end=2023-10-15T17:00:00
+
+### Supprimer une plage de dates d'un événement
+DELETE http://localhost:8080/api/events/1/remove-date-range?start=2023-10-15T09:00:00&end=2023-10-15T17:00:00
+
+### Récupérer les événements entre deux dates
+GET http://localhost:8080/api/events/between?start=2023-10-01T00:00:00&end=2023-10-31T23:59:59
+
+### Supprimer un événement
+DELETE http://localhost:8080/api/events/1
+```
+
+Maintenant, voici un schéma ASCII de l'organisation du projet :
+
+```
+eventmanager/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── eventmanager/
+│   │   │               ├── controller/
+│   │   │               │   └── EventController.java
+│   │   │               ├── model/
+│   │   │               │   └── Event.java
+│   │   │               ├── repository/
+│   │   │               │   └── EventRepository.java
+│   │   │               ├── service/
+│   │   │               │   └── EventService.java
+│   │   │               └── EventManagerApplication.java
+│   │   │
+│   │   └── resources/
+│   │       └── application.properties
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── eventmanager/
+│                       └── EventManagerApplicationTests.java
+│
+├── pom.xml
+└── test1.http
+```
+
+Ce schéma montre l'organisation typique d'un projet Spring Boot :
+
+- Le dossier `src/main/java` contient tout le code source Java, organisé en packages.
+- Le dossier `src/main/resources` contient les fichiers de configuration, notamment `application.properties`.
+- Le dossier `src/test` est destiné aux tests unitaires et d'intégration.
+- Le fichier `pom.xml` à la racine du projet définit les dépendances et la configuration du build Maven.
+- Le fichier `test1.http` que nous venons de créer est placé à la racine du projet pour faciliter les tests manuels des endpoints.
+
+Cette structure suit les meilleures pratiques de développement Spring Boot, séparant clairement les différentes couches de l'application (contrôleur, service, repository, modèle) et facilitant ainsi la maintenance et l'évolution du projet.
+
+
