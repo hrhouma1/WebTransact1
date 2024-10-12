@@ -295,3 +295,179 @@ Ce projet inclut tous les types de dates mentionnés dans le modèle Event et fo
 
 N'oubliez pas d'ajouter la classe principale Spring Boot (EventManagerApplication.java) pour exécuter l'application.
 
+
+--------------------------------
+# Annexes :
+--------------------------------
+
+1. test1.http
+
+```http
+### Créer un nouvel événement
+POST http://localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "name": "Conférence Spring Boot",
+  "description": "Une conférence sur les meilleures pratiques Spring Boot"
+}
+
+### Récupérer tous les événements
+GET http://localhost:8080/api/events
+
+### Récupérer un événement par ID
+GET http://localhost:8080/api/events/1
+
+### Mettre à jour un événement
+PUT http://localhost:8080/api/events/1
+Content-Type: application/json
+
+{
+  "name": "Conférence Spring Boot 2023",
+  "description": "Mise à jour de la conférence sur les meilleures pratiques Spring Boot"
+}
+
+### Ajouter une plage de dates à un événement
+POST http://localhost:8080/api/events/1/add-date-range?start=2023-10-15T09:00:00&end=2023-10-15T17:00:00
+
+### Supprimer une plage de dates d'un événement
+DELETE http://localhost:8080/api/events/1/remove-date-range?start=2023-10-15T09:00:00&end=2023-10-15T17:00:00
+
+### Récupérer les événements entre deux dates
+GET http://localhost:8080/api/events/between?start=2023-10-01T00:00:00&end=2023-10-31T23:59:59
+
+### Supprimer un événement
+DELETE http://localhost:8080/api/events/1
+```
+
+2. README.md
+
+```markdown
+# Event Manager Application
+
+Cette application Spring Boot permet de gérer des événements avec des plages de dates multiples.
+
+## Prérequis
+
+- Java 17
+- Maven
+
+## Configuration
+
+Le projet utilise une base de données H2 en mémoire pour le développement. Vous pouvez modifier la configuration dans le fichier `application.properties` si nécessaire.
+
+## Exécution
+
+Pour exécuter l'application :
+
+1. Clonez le dépôt
+2. Naviguez vers le dossier du projet
+3. Exécutez `mvn spring-boot:run`
+
+L'application sera accessible à l'adresse `http://localhost:8080`.
+
+## Endpoints API
+
+- POST /api/events : Créer un nouvel événement
+- GET /api/events : Récupérer tous les événements
+- GET /api/events/{id} : Récupérer un événement par ID
+- PUT /api/events/{id} : Mettre à jour un événement
+- DELETE /api/events/{id} : Supprimer un événement
+- GET /api/events/between : Récupérer les événements entre deux dates
+- POST /api/events/{id}/add-date-range : Ajouter une plage de dates à un événement
+- DELETE /api/events/{id}/remove-date-range : Supprimer une plage de dates d'un événement
+
+## Tests
+
+Vous pouvez utiliser le fichier `test1.http` pour tester les endpoints de l'API si votre IDE supporte les fichiers HTTP.
+```
+
+3. .gitignore
+
+```
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### H2 Database ###
+*.db
+```
+
+4. Schéma ASCII de l'organisation du projet
+
+```
+eventmanager/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── eventmanager/
+│   │   │               ├── controller/
+│   │   │               │   └── EventController.java
+│   │   │               ├── model/
+│   │   │               │   └── Event.java
+│   │   │               ├── repository/
+│   │   │               │   └── EventRepository.java
+│   │   │               ├── service/
+│   │   │               │   └── EventService.java
+│   │   │               └── EventManagerApplication.java
+│   │   │
+│   │   └── resources/
+│   │       └── application.properties
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── eventmanager/
+│                       └── EventManagerApplicationTests.java
+│
+├── pom.xml
+├── README.md
+├── .gitignore
+└── test1.http
+```
+
+Ces fichiers supplémentaires complètent la structure du projet :
+
+- Le fichier `test1.http` permet de tester facilement les endpoints de l'API.
+- Le `README.md` fournit des informations sur le projet et comment l'exécuter.
+- Le `.gitignore` est utile si vous utilisez Git pour le contrôle de version.
+- Le schéma ASCII donne une vue d'ensemble de la structure du projet.
+
+Avec ces ajouts, vous avez maintenant une structure de projet complète et des outils pour tester et documenter votre application Spring Boot de gestion d'événements.
+
+
+
